@@ -5,7 +5,7 @@ WORKDIR /root
 
 RUN apt-get update \
     && apt-get install -y wget tar gzip
-RUN wget https://github.com/akkuman/docker-msoffice2010-python/releases/download/v0.0/wine-python3.7.9-office2010.tgz \
+RUN wget -q https://github.com/akkuman/docker-msoffice2010-python/releases/download/v0.0/wine-python3.7.9-office2010.tgz \
     && tar zxf wine-python3.7.9-office2010.tgz
 
 
