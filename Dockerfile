@@ -11,7 +11,7 @@ RUN wget -q https://github.com/akkuman/docker-msoffice2010-python/releases/downl
 
 
 # reference: https://github.com/huan/docker-wine/blob/main/Dockerfile
-FROM ubuntu:20.04
+FROM ubuntu:20.04 AS finally
 LABEL maintainer="Akkuman<akkumans@qq.com> (https://hacktech.cn)"
 
 ARG DEBIAN_FRONTEND=noninteractive
