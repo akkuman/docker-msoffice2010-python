@@ -39,7 +39,7 @@ jobs:
           cache-from: |
             type=gha,scope=downloader
           cache-to: |
-            type=gha,scope=downloader,mode=max
+            type=gha,scope=downloader
           target: downloader
       -
         name: Build and push
@@ -55,5 +55,5 @@ jobs:
           cache-from: |
             type=gha,scope=finally
             type=gha,scope=downloader
-          cache-to: type=gha,scope=finally,mode=max
+          cache-to: type=gha,scope=finally
           target: finally
