@@ -53,7 +53,7 @@ jobs:
             akkuman/msoffice2010-python:${{ env.RELEASE_VERSION }}
             akkuman/msoffice2010-python:latest
           cache-from: |
-            type=gha,scope=downloader
             type=gha,scope=finally
+            type=gha,scope=downloader
           cache-to: type=gha,scope=finally,mode=max
           target: finally
