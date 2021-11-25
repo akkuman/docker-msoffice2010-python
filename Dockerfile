@@ -52,6 +52,6 @@ RUN dpkg --add-architecture i386 \
     && rm -rf /var/lib/apt/lists/* \
     && rm -fr /tmp/*
 
-ADD ./wine-python3.7.9-office2010.tgz /root/
+ADD https://github.com/akkuman/docker-msoffice2010-python/releases/download/v0.0/wine-python3.7.9-office2010.tgz /root/
 
 RUN chown root:root /root/.wine-office2010
