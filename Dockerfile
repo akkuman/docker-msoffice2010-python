@@ -1,3 +1,15 @@
+FROM ubuntu:20.04 AS downloader
+
+ARG DEBIAN_FRONTEND=noninteractive
+WORKDIR /root
+
+RUN apt-get update \
+    && apt-get install -y wget tar gzip \
+RUN wget https://github.com/akkuman/docker-msoffice2010-python/releases/download/v0.0/wine-python3.7.9-office2010.tgz \
+    && tar zxf wine-python3.7.9-office2010.tgz
+
+
+
 # reference: https://github.com/huan/docker-wine/blob/main/Dockerfile
 FROM ubuntu:20.04
 LABEL maintainer="Akkuman<akkumans@qq.com> (https://hacktech.com)"
@@ -10,7 +22,7 @@ ENV \
     LANG='C.UTF-8' \
     LC_ALL='C.UTF-8' \
     TZ=Asia/Shanghai \
-    WINEPREFIX=/root/.wine-office2010 \
+    WINEPREFIX=/root/.wine \
     WINEARCH=win32
 
 ADD https://github.com/krallin/tini/releases/latest/download/tini /bin/tini
@@ -52,6 +64,6 @@ RUN dpkg --add-architecture i386 \
     && rm -rf /var/lib/apt/lists/* \
     && rm -fr /tmp/*
 
-ADD https://github.com/akkuman/docker-msoffice2010-python/releases/download/v0.0/wine-python3.7.9-office2010.tgz /root/
+COPY --from=downloader /root/.wine-office2010 /root/.wine
 
 RUN chown root:root /root/.wine-office2010
