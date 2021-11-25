@@ -33,3 +33,5 @@ jobs:
           tags: |
             akkuman/msoffice2010-python:${{ env.RELEASE_VERSION }}
             akkuman/msoffice2010-python:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
