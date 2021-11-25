@@ -67,3 +67,6 @@ RUN dpkg --add-architecture i386 \
 COPY --from=downloader /root/.wine-office2010 /root/.wine
 
 RUN chown root:root /root/.wine
+
+# hide all debug info
+ENV WINEDEBUG=-all
