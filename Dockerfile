@@ -10,7 +10,7 @@ ENV \
     LANG='C.UTF-8' \
     LC_ALL='C.UTF-8' \
     TZ=Asia/Shanghai \
-    WINEPREFIX=~/.wine-office2010 \
+    WINEPREFIX=/root/.wine-office2010 \
     WINEARCH=win32
 
 ADD https://github.com/krallin/tini/releases/latest/download/tini /bin/tini
