@@ -48,10 +48,9 @@ jobs:
         with:
           context: .
           file: Dockerfile
-          push: true
-          tags: |
-            akkuman/msoffice2010-python:${{ env.RELEASE_VERSION }}
-            akkuman/msoffice2010-python:latest
+          push: false
+          load: false
+          
           cache-from: |
             type=gha,scope=finally
             type=gha,scope=downloader
