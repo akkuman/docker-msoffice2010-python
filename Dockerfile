@@ -5,8 +5,8 @@ WORKDIR /root
 
 RUN apt-get update \
     && apt-get install -y wget tar gzip
-RUN wget -q https://github.com/akkuman/docker-msoffice2010-python/releases/download/v0.0/wine-python3.7.9-office2010.tgz \
-    && tar zxf wine-python3.7.9-office2010.tgz
+RUN wget -q https://github.com/akkuman/docker-msoffice2010-python/releases/download/v0.0/wine-python3.7.9-office2010.4in1.activated.tgz \
+    && tar zxf wine-python3.7.9-office2010.4in1.activated.tgz
 
 
 
@@ -41,6 +41,7 @@ RUN apt-get update \
         ca-certificates \
         cabextract \
         curl \
+        wget \
         gnupg2 \
         software-properties-common \
         tzdata \
@@ -54,8 +55,8 @@ RUN apt-get update \
 
 # https://wiki.winehq.org/Ubuntu
 RUN dpkg --add-architecture i386 \
-    && curl -sL https://dl.winehq.org/wine-builds/winehq.key | apt-key add - \
-    && add-apt-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ focal main' \
+    && wget -nc https://dl.winehq.org/wine-builds/winehq.key && mv winehq.key /usr/share/keyrings/winehq-archive.key \
+    && wget -nc https://dl.winehq.org/wine-builds/ubuntu/dists/focal/winehq-focal.sources && mv winehq-focal.sources /etc/apt/sources.list.d/ \
     && apt-get update \
     && apt-get install -y \
         winehq-stable \
