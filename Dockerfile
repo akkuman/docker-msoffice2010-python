@@ -5,8 +5,8 @@ WORKDIR /root
 
 RUN apt-get update \
     && apt-get install -y wget tar gzip
-RUN wget -q https://github.com/akkuman/docker-msoffice2010-python/releases/download/v0.0/wine-python3.7.9-office2010.4in1.licensed.tgz \
-    && tar zxf wine-python3.7.9-office2010.4in1.licensed.tgz
+RUN wget -q https://github.com/akkuman/docker-msoffice2010-python/releases/download/v0.0/wine-python3.7.9-office2010.3in1.licensed.tgz \
+    && tar zxf wine-python3.7.9-office2010.3in1.licensed.tgz
 
 
 
@@ -22,7 +22,7 @@ ENV \
     LANG='C.UTF-8' \
     LC_ALL='C.UTF-8' \
     TZ=Asia/Shanghai \
-    WINEPREFIX=/root/.wine \
+    WINEPREFIX=/root/.wine-office2010 \
     WINEARCH=win32
 
 ADD https://github.com/krallin/tini/releases/latest/download/tini /bin/tini
@@ -64,9 +64,9 @@ RUN dpkg --add-architecture i386 \
     && rm -rf /var/lib/apt/lists/* \
     && rm -fr /tmp/*
 
-COPY --from=downloader /root/.wine-office2010 /root/.wine
+COPY --from=downloader /root/.wine-office2010 /root/.wine-office2010
 
-RUN chown root:root /root/.wine
+RUN chown root:root /root/.wine-office2010
 
 # hide all debug info
 ENV WINEDEBUG=-all
