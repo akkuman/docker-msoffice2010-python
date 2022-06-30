@@ -3,10 +3,10 @@ MAINTAINER Akkuman "Akkuman<akkumans@qq.com> (https://hacktech.cn)"
 
 ARG DEBIAN_FRONTEND=noninteractive
 
-ENV LANG='C.UTF-8' && \
-    LC_ALL='C.UTF-8' && \
-    WINEDEBUG=-all && \
-    WINEPREFIX=/opt/wineprefix && \
+ENV LANG='C.UTF-8' \
+    LC_ALL='C.UTF-8' \
+    WINEDEBUG=-all \
+    WINEPREFIX=/opt/wineprefix \
     WINEARCH=win32
 
 WORKDIR /root
