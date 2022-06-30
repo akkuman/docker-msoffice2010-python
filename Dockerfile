@@ -30,6 +30,7 @@ RUN umask 0 && \
     tar zxvf /root/xb21cn.com_Office2010_4in1_20210124.tgz && \
     rm -rf /root/xb21cn.com_Office2010_4in1_20210124.tgz && \
     # install deps, ref: https://github.com/Winetricks/winetricks/issues/1236
+    mkdir -p ~/.cache/wine && \
     curl -o ~/.cache/wine/wine-mono-7.0.0-x86.msi -L https://dl.winehq.org/wine/wine-mono/7.0.0/wine-mono-7.0.0-x86.msi && \
     curl -o ~/.cache/wine/wine-gecko-2.47.2-x86.msi -L http://dl.winehq.org/wine/wine-gecko/2.47.2/wine-gecko-2.47.2-x86.msi && \
     xvfb-run /root/winetricks riched20 gdiplus msxml6 mspatcha mfc100 -q && \
