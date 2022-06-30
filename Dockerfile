@@ -28,7 +28,7 @@ RUN umask 0 && \
     curl -o ~/.cache/wine/wine-mono-7.0.0-x86.msi -L https://dl.winehq.org/wine/wine-mono/7.0.0/wine-mono-7.0.0-x86.msi && \
     curl -o ~/.cache/wine/wine-gecko-2.47.2-x86.msi -L http://dl.winehq.org/wine/wine-gecko/2.47.2/wine-gecko-2.47.2-x86.msi && \
     xvfb-run /root/winetricks riched20 gdiplus msxml6 mspatcha mfc100 -q && \
-    rm -rf /root/winetricks ~/.cache/wine/wine-mono-7.0.0-x86.msi ~/.cache/wine/wine-gecko-2.47.2-x86.msi
+    rm -rf /root/winetricks ~/.cache/wine ~/.cache/winetricks
 
 # umask 0 for permissions
 RUN umask 0 && \
