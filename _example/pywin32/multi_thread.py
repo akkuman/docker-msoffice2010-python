@@ -18,7 +18,7 @@ def run(file_path):
         print('update toc')
         toc = doc.TablesOfContents(1)
         toc.Update()
-    doc.Close()
+    doc.Close(SaveChanges=True)
     word.Quit()
     pythoncom.CoUninitialize()
 
