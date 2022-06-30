@@ -39,15 +39,15 @@ RUN umask 0 && \
     tar zxvf /root/xb21cn.com_Office2010_4in1_20210124.tgz && \
     rm -rf /root/xb21cn.com_Office2010_4in1_20210124.tgz && \
     # install office2010, https://www.xb21cn.com/267.html
-    winecfg -v winxp && \
+    xvfb-run winecfg -v winxp && \
     curl -o /opt/wineprefix/drive_c/windows/Fonts/simsun.ttc -L https://github.com/akkuman/docker-msoffice2010-python/releases/download/v0.0/simsun.ttc && \
     xvfb-run wine /root/Office2010_4in1_20210124.exe /S && \
     wineserver -w && \
     # install python
-    winecfg -v win7 && \
+    xvfb-run winecfg -v win7 && \
     xvfb-run wine /root/python-3.7.9.exe /quiet InstallAllUsers=1 PrependPath=1 Include_doc=0 && \
     wineserver -w && \
     # ensure the normal running of office2010
-    winecfg -v winxp && \
+    xvfb-run winecfg -v winxp && \
     # clean
     rm -rf /root/python-3.7.9.exe /root/Office2010_4in1_20210124.exe
